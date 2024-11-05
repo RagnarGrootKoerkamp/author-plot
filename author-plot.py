@@ -75,6 +75,10 @@ def parse_entry(ent):
     # month = ent.month_num() if 'month' in ent else None
     month = None
     title = parse_tex(algo.title_case(ent["title"]))
+    if key in meta and "name" in meta[key]:
+        title = meta[key]["name"] + " " + year
+    else:
+        title = key + " " + title + " " + year
     authors = [parse_tex(author.pretty()) for author in ent.authors()]
     tup = (key, year, month, title, authors)
     # print(tup)
@@ -111,7 +115,7 @@ for key, year, month, title, ats in data:
     author_cnt[ats[0]] += 1
 
     ts = meta[key]["tags"] if meta else []
-    new_data.append((key + " " + title + " " + year, ats, ts))
+    new_data.append((title, ats, ts))
 
     for t in ts:
         if t not in tags:
