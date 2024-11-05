@@ -1,8 +1,8 @@
 * Author plot
 
-Takes as input a file =references.bib= (simply modify the example), and outputs
-=plot.svg= like below. Run as =python3 plot.py=, after doing =git submodule update --init=.
+Takes as input a path to a file =references.bib=, and outputs
+=references.svg= like below. Run as =python3 author-plot.py=, after doing =git submodule update --init=.
 
-[[file:./plot.svg]]
+[[file:./references.svg]]
 
 Style and code inspired by the [[https://upsetplot.readthedocs.io/en/stable/][upsetplot]] python library.

@@ -15,8 +15,12 @@ import biblib.bib as bib
 import biblib.messages as messages
 import biblib.algo as algo
 
+import sys
 
-f = "references.bib"
+if len(sys.argv) > 1:
+    f = Path(sys.argv[1])
+else:
+    f = Path("references.bib")
 
 
 # Return list of [(key, year, month, title, [authors])]
@@ -128,4 +132,5 @@ for x in range(0, len(authors), 2):
 
     ax.add_patch(rect)
 
-fig.savefig("plot.svg", bbox_inches="tight")
+out = f.with_suffix(".svg")
+fig.savefig(out, bbox_inches="tight")
